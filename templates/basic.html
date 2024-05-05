@@ -1,0 +1,244 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    learn - basic table setting
+{% endblock %}
+
+{% block content %}
+    <div class="container vertical-center">
+        <div class="row vertical-center-row">
+            <div class="col-md-4 col-md-offset-4 center-content">
+                <h1 class="display-4">basic table setting</h1>
+                <p class="lead text-center">click an item to learn more</p>
+
+                <!-- Image container with hotspots for interactivity -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/basic_table.png') }}" alt="Centered Image">
+
+                    <!-- Initially hidden "Next Lesson" button -->
+                    <button id="nextLessonButton" class="btn btn-outline-primary custom-button-margin"
+                            style="display: none;" onclick="window.location.href='casual';">
+                        next lesson
+                    </button>
+
+                    <!-- Placemat hotspot -->
+                    <div class="hotspot placemat-hotspot"
+                         onclick="stopAnimation(this); toggleModal('placematModal'); hotspotClicked(this, 'placematModal', 'placemat-hotspot');">
+                        1
+                    </div>
+
+                    <!-- Napkin hotspot -->
+                    <div class="hotspot napkin-hotspot"
+                         onclick="stopAnimation(this); toggleModal('napkinModal'); hotspotClicked(this, 'napkinModal', 'napkin-hotspot');">
+                        2
+                    </div>
+
+                    <!-- Fork hotspot -->
+                    <div class="hotspot fork-hotspot"
+                         onclick="stopAnimation(this); toggleModal('forkModal'); hotspotClicked(this, 'forkModal', 'fork-hotspot');">
+                        3
+                    </div>
+
+                    <!-- Plate hotspot -->
+                    <div class="hotspot plate-hotspot"
+                         onclick="stopAnimation(this); toggleModal('plateModal'); hotspotClicked(this, 'plateModal', 'plate-hotspot');">
+                        4
+                    </div>
+
+                    <!-- Knife hotspot -->
+                    <div class="hotspot knife-hotspot"
+                         onclick="stopAnimation(this); toggleModal('knifeModal'); hotspotClicked(this, 'knifeModal', 'knife-hotspot');">
+                        5
+                    </div>
+
+                    <!-- Spoon hotspot -->
+                    <div class="hotspot spoon-hotspot"
+                         onclick="stopAnimation(this); toggleModal('spoonModal'); hotspotClicked(this, 'spoonModal', 'spoon-hotspot');">
+                        6
+                    </div>
+
+                    <!-- Glass hotspot -->
+                    <div class="hotspot glass-hotspot"
+                         onclick="stopAnimation(this); toggleModal('glassModal'); hotspotClicked(this, 'glassModal', 'glass-hotspot');">
+                        7
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placemat Modal structure -->
+    <div class="modal" id="placematModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Placemat</h1>
+                <div class="close-modal" onclick="toggleModal('placematModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Lay the placemat on the table.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Napkin Modal structure -->
+    <div class="modal" id="napkinModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Napkin</h1>
+                <div class="close-modal" onclick="toggleModal('napkinModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Lay the napkin to the left of the plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fork Modal structure -->
+    <div class="modal" id="forkModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Fork</h1>
+                <div class="close-modal" onclick="toggleModal('forkModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the dinner fork on the napkin.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Plate Modal structure -->
+    <div class="modal" id="plateModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Plate</h1>
+                <div class="close-modal" onclick="toggleModal('plateModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Put the dinner plate in the middle of the placemat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Knife Modal structure -->
+    <div class="modal" id="knifeModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Knife</h1>
+                <div class="close-modal" onclick="toggleModal('knifeModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>To the right of the dinner plate, place the dinner knife closest to the dinner plate, blade pointing in.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spoon Modal structure -->
+    <div class="modal" id="spoonModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Spoon</h1>
+                <div class="close-modal" onclick="toggleModal('spoonModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the spoon to the right of the dinner knife.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Water Glass Modal structure -->
+    <div class="modal" id="glassModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Water Glass</h1>
+                <div class="close-modal" onclick="toggleModal('glassModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the water glass slightly above the plate, in between the plate and the utensils.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        // Hotspot identifiers as simple names
+        const hotspotIdentifiers = [
+            'placemat-hotspot',
+            'napkin-hotspot',
+            'fork-hotspot',
+            'plate-hotspot',
+            'knife-hotspot',
+            'spoon-hotspot',
+            'glass-hotspot'
+        ];
+
+        // Initialize clicked states with only identifiers
+        const clickedHotspots = {};
+        hotspotIdentifiers.forEach(identifier => clickedHotspots[identifier] = false);
+
+        // Function to toggle the visibility of a modal
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = modal.style.display === "block" ? "none" : "block";
+            }
+        }
+
+        function stopAnimation(hotspot) {
+            hotspot.style.animation = 'none';
+        }
+
+        function hotspotClicked(hotspot, modalId, identifier) {
+            stopAnimation(hotspot);
+            hotspot.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
+            clickedHotspots[identifier] = true;
+            checkAllHotspotsClicked();
+        }
+
+        // Function to check if all hotspots have been clicked and reveal the "Next Lesson" button
+        function checkAllHotspotsClicked() {
+            const allClicked = Object.values(clickedHotspots).every(status => status === true);
+            const nextLessonButton = document.getElementById('nextLessonButton');
+
+            console.log(`All hotspots clicked: ${allClicked}`);
+            if (allClicked) {
+                console.log("Revealing the 'Next Lesson' button.");
+                nextLessonButton.style.display = "block";
+            } else {
+                console.log("Some hotspots are still unchecked.");
+            }
+        }
+
+        // Attach event listeners to each hotspot
+        document.querySelectorAll('.hotspot').forEach(hotspot => {
+            // Extract the appropriate identifier by looking up specific classes
+            const matchingClass = hotspotIdentifiers.find(cls => hotspot.classList.contains(cls));
+            const identifier = matchingClass;
+            const modalId = `${identifier.replace('-hotspot', '')}Modal`;
+
+            console.log(`Binding event for hotspot class: ${identifier}, Modal ID: ${modalId}`);
+            hotspot.addEventListener('click', () => hotspotClicked(hotspot, modalId, identifier));
+        });
+    </script>
+{% endblock %}

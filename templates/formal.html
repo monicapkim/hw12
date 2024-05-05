@@ -1,0 +1,439 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Learn - Formal Table Setting
+{% endblock %}
+
+{% block content %}
+    <div class="container vertical-center">
+        <div class="row vertical-center-row">
+            <div class="col-md-4 col-md-offset-4 center-content">
+                <h1 class="display-4">formal table setting</h1>
+                <p class="lead text-center">click an item to learn more</p>
+
+                <!-- Image container with hotspots for interactivity -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/formal_table.png') }}" alt="Centered Image">
+
+                    <button id="nextLessonButton" class="btn btn-outline-primary custom-button-margin"
+                            style="display: none;" onclick="window.location.href='/quiz';">
+                        ready for a quiz?
+                    </button>
+
+                    <!-- Bread plate hotspot -->
+                    <div class="hotspot bread-plate"
+                         onclick="stopAnimation(this); toggleModal('breadPlate'); hotspotClicked(this, 'breadPlate', 'bread-plate');">
+                        1
+                    </div>
+
+                    <!-- Butter knife hotspot -->
+                    <div class="hotspot butter-knife"
+                         onclick="stopAnimation(this); toggleModal('butterKnife'); hotspotClicked(this, 'butterKnife', 'butter-knife');">
+                        2
+                    </div>
+
+                    <!-- Dessert fork hotspot -->
+                    <div class="hotspot dessert-fork"
+                         onclick="stopAnimation(this); toggleModal('dessertFork'); hotspotClicked(this, 'dessertFork', 'dessert-fork');">
+                        3
+                    </div>
+
+                    <!-- Dessert spoon hotspot -->
+                    <div class="hotspot dessert-spoon"
+                         onclick="stopAnimation(this); toggleModal('dessertSpoon'); hotspotClicked(this, 'dessertSpoon', 'dessert-spoon');">
+                        4
+                    </div>
+
+                    <!-- Water hotspot -->
+                    <div class="hotspot water"
+                         onclick="stopAnimation(this); toggleModal('water'); hotspotClicked(this, 'water', 'water');">
+                        5
+                    </div>
+
+                    <!-- Red wine hotspot -->
+                    <div class="hotspot red"
+                         onclick="stopAnimation(this); toggleModal('red'); hotspotClicked(this, 'red', 'red');">
+                        6
+                    </div>
+
+                    <!-- White wine hotspot -->
+                    <div class="hotspot white"
+                         onclick="stopAnimation(this); toggleModal('white'); hotspotClicked(this, 'white', 'white');">
+                        7
+                    </div>
+
+                    <!-- Napkin hotspot -->
+                    <div class="hotspot napkin"
+                         onclick="stopAnimation(this); toggleModal('napkin'); hotspotClicked(this, 'napkin', 'napkin');">
+                        8
+                    </div>
+
+                    <!-- Salad fork hotspot -->
+                    <div class="hotspot salad-fork"
+                         onclick="stopAnimation(this); toggleModal('salad-fork'); hotspotClicked(this, 'salad-fork', 'salad-fork');">
+                        9
+                    </div>
+
+                    <!-- Dinner fork hotspot -->
+                    <div class="hotspot fork"
+                         onclick="stopAnimation(this); toggleModal('fork'); hotspotClicked(this, 'fork', 'fork');">
+                        10
+                    </div>
+
+                    <!-- Charger hotspot -->
+                    <div class="hotspot charger"
+                         onclick="stopAnimation(this); toggleModal('charger'); hotspotClicked(this, 'charger', 'charger');">
+                        11
+                    </div>
+
+                    <!-- Dinner plate hotspot -->
+                    <div class="hotspot dinner-plate"
+                         onclick="stopAnimation(this); toggleModal('dinner-plate'); hotspotClicked(this, 'dinner-plate', 'dinner-plate');">
+                        12
+                    </div>
+
+                    <!-- Salad plate hotspot -->
+                    <div class="hotspot salad-plate"
+                         onclick="stopAnimation(this); toggleModal('salad-plate'); hotspotClicked(this, 'salad-plate', 'salad-plate');">
+                        13
+                    </div>
+
+                    <!-- Bowl hotspot -->
+                    <div class="hotspot bowl"
+                         onclick="stopAnimation(this); toggleModal('bowl'); hotspotClicked(this, 'bowl', 'bowl');">
+                        14
+                    </div>
+
+                    <!-- Knife hotspot -->
+                    <div class="hotspot knife"
+                         onclick="stopAnimation(this); toggleModal('knife'); hotspotClicked(this, 'knife', 'knife');">
+                        15
+                    </div>
+
+                    <!-- Spoon hotspot -->
+                    <div class="hotspot spoon"
+                         onclick="stopAnimation(this); toggleModal('spoon'); hotspotClicked(this, 'spoon', 'spoon');">
+                        16
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal structures -->
+    <!-- Bread Plate -->
+    <div class="modal" id="breadPlate" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Bread Plate</h1>
+                <div class="close-modal" onclick="toggleModal('breadPlate');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the bread plate to the top left of the charger between 10 and 11 p.m. on a clock face.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Butter Knife -->
+    <div class="modal" id="butterKnife" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Butter Knife</h1>
+                <div class="close-modal" onclick="toggleModal('butterKnife');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the butter knife on the bread plate diagonally, with the blade facing toward the plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dessert Fork -->
+    <div class="modal" id="dessertFork" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dessert Fork</h1>
+                <div class="close-modal" onclick="toggleModal('dessertFork');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Directly above the dessert spoon, place a dessert fork with the handle pointing to the left.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dessert Spoon -->
+    <div class="modal" id="dessertSpoon" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dessert Spoon</h1>
+                <div class="close-modal" onclick="toggleModal('dessertSpoon');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Directly above the charger, place a dessert spoon with the handle pointing to the right.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Water Glass -->
+    <div class="modal" id="water" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Water Glass</h1>
+                <div class="close-modal" onclick="toggleModal('water');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Directly above the knife, place a water glass.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Red Wine Glass -->
+    <div class="modal" id="red" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Red Wine Glass</h1>
+                <div class="close-modal" onclick="toggleModal('red');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place a red wine glass to the right of–and slightly above–the white wine glass.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- White Wine Glass -->
+    <div class="modal" id="white" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>White Wine Glass</h1>
+                <div class="close-modal" onclick="toggleModal('white');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>To the right of the water glass and about three-fourths of an inch downward, place the white wine glass.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Napkin -->
+    <div class="modal" id="napkin" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Napkin</h1>
+                <div class="close-modal" onclick="toggleModal('napkin');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Lay a napkin to the left of the charger.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Salad Fork -->
+    <div class="modal" id="salad-fork" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Salad Fork</h1>
+                <div class="close-modal" onclick="toggleModal('salad-fork');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On the left of the charger, place the salad fork on the outside.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dinner Fork -->
+    <div class="modal" id="fork" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Fork</h1>
+                <div class="close-modal" onclick="toggleModal('fork');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On the left of the charger, place the dinner fork on the outside.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Charger Plate -->
+    <div class="modal" id="charger" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Charger Plate</h1>
+                <div class="close-modal" onclick="toggleModal('charger');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Set a charger plate at each seat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dinner Plate -->
+    <div class="modal" id="dinner-plate" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Plate</h1>
+                <div class="close-modal" onclick="toggleModal('dinner-plate');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On top of the charger plate, place the dinner plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Salad Plate -->
+    <div class="modal" id="salad-plate" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Salad Plate</h1>
+                <div class="close-modal" onclick="toggleModal('salad-plate');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On top of the dinner plate, set the salad plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soup Bowl -->
+    <div class="modal" id="bowl" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Soup Bowl</h1>
+                <div class="close-modal" onclick="toggleModal('bowl');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On top of the salad plate, place the soup bowl.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dinner Knife -->
+    <div class="modal" id="knife" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Knife</h1>
+                <div class="close-modal" onclick="toggleModal('knife');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>On the right of the charger, place the knife closest to the charger.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soup Spoon -->
+    <div class="modal" id="spoon" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div a class="modal-box">
+            <div class="modal-header">
+                <h1>Soup Spoon</h1>
+                <div class="close-modal" onclick="toggleModal('spoon');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the soup spoon on the right side of the dinner knife.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Define the identifiers specifically for the formal table setting
+    const formalHotspotIdentifiers = [
+        'bread-plate', 'butter-knife', 'dessert-fork', 'dessert-spoon', 'water', 'red', 'white',
+        'napkin', 'salad-fork', 'fork', 'charger', 'dinner-plate', 'salad-plate', 'bowl', 'knife', 'spoon'
+    ];
+
+    // Initialize clicked states with formal-specific identifiers
+    const clickedFormalHotspots = {};
+    formalHotspotIdentifiers.forEach(identifier => clickedFormalHotspots[identifier] = false);
+
+    // Function to toggle modal visibility
+    function toggleModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+    }
+
+    // Stop the animation of a hotspot
+    function stopAnimation(hotspot) {
+        hotspot.style.animation = 'none';
+    }
+
+    // Function to handle a hotspot click and mark it as clicked
+    function hotspotClicked(hotspot, modalId, identifier) {
+        stopAnimation(hotspot);
+        toggleModal(modalId);
+        hotspot.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
+        clickedFormalHotspots[identifier] = true;
+        checkAllFormalHotspotsClicked();
+    }
+
+    // Function to check if all formal hotspots have been clicked and reveal the "Next Lesson" button
+    function checkAllFormalHotspotsClicked() {
+        const allClicked = Object.values(clickedFormalHotspots).every(status => status === true);
+        const nextLessonButton = document.getElementById('nextLessonButton');
+
+        console.log(`All hotspots clicked: ${allClicked}`);
+        if (allClicked) {
+            console.log("Revealing the 'Next Lesson' button.");
+            nextLessonButton.style.display = "block";
+        } else {
+            console.log("Some hotspots are still unchecked.");
+        }
+    }
+
+    // Attach event listeners to each hotspot
+    document.querySelectorAll('.hotspot').forEach(hotspot => {
+        hotspot.addEventListener('click', () => {
+            const modalId = hotspot.getAttribute('onclick').match(/toggleModal\('(.+?)'\)/)[1];
+            const identifier = hotspot.classList[1]; // Assuming the second class is the identifier
+            hotspotClicked(hotspot, modalId, identifier);
+        });
+    });
+</script>
+{% endblock %}

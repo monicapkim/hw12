@@ -1,0 +1,314 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    learn - casual table setting
+{% endblock %}
+
+{% block content %}
+    <div class="container vertical-center">
+        <div class="row vertical-center-row">
+            <div class="col-md-4 col-md-offset-4 center-content">
+                <h1 class="display-4">casual table setting</h1>
+                <p class="lead text-center">click an item to learn more</p>
+
+                <!-- Image container with hotspots for interactivity -->
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/casual_table.png') }}" alt="Centered Image">
+
+                    <button id="nextLessonButton" class="btn btn-outline-primary custom-button-margin"
+                            style="display: none;" onclick="window.location.href='formal';">
+                        next lesson
+                    </button>
+
+                    <!-- Placemat hotspot -->
+                    <div class="hotspot casual-placemat-hotspot"
+                         onclick="stopAnimation(this); toggleModal('placematModal'); hotspotClicked(this, 'placematModal', 'casual-placemat-hotspot');">
+                        1
+                    </div>
+
+                    <!-- Napkin hotspot -->
+                    <div class="hotspot casual-napkin-hotspot"
+                         onclick="stopAnimation(this); toggleModal('napkinModal'); hotspotClicked(this, 'napkinModal', 'casual-napkin-hotspot');">
+                        2
+                    </div>
+
+                    <!-- Fork hotspot -->
+                    <div class="hotspot casual-fork-hotspot"
+                         onclick="stopAnimation(this); toggleModal('forkModal'); hotspotClicked(this, 'forkModal', 'casual-fork-hotspot');">
+                        3
+                    </div>
+
+                    <!-- Dinner Plate hotspot -->
+                    <div class="hotspot casual-dinner-plate"
+                         onclick="stopAnimation(this); toggleModal('dinnerPlateModal'); hotspotClicked(this, 'dinnerPlateModal', 'casual-dinner-plate');">
+                        4
+                    </div>
+
+                    <!-- Salad Plate hotspot -->
+                    <div class="hotspot casual-salad-plate"
+                         onclick="stopAnimation(this); toggleModal('saladPlateModal'); hotspotClicked(this, 'saladPlateModal', 'casual-salad-plate');">
+                        5
+                    </div>
+
+                    <!-- Soup Bowl hotspot -->
+                    <div class="hotspot casual-bowl"
+                         onclick="stopAnimation(this); toggleModal('bowlModal'); hotspotClicked(this, 'bowlModal', 'casual-bowl');">
+                        6
+                    </div>
+
+                    <!-- Knife hotspot -->
+                    <div class="hotspot casual-knife"
+                         onclick="stopAnimation(this); toggleModal('knifeModal'); hotspotClicked(this, 'knifeModal', 'casual-knife');">
+                        7
+                    </div>
+
+                    <!-- Spoon hotspot -->
+                    <div class="hotspot casual-spoon"
+                         onclick="stopAnimation(this); toggleModal('spoonModal'); hotspotClicked(this, 'spoonModal', 'casual-spoon');">
+                        8
+                    </div>
+
+                    <!-- Water hotspot -->
+                    <div class="hotspot casual-water"
+                         onclick="stopAnimation(this); toggleModal('waterModal'); hotspotClicked(this, 'waterModal', 'casual-water');">
+                        9
+                    </div>
+
+                    <!-- Wine hotspot -->
+                    <div class="hotspot casual-wine"
+                         onclick="stopAnimation(this); toggleModal('wineModal'); hotspotClicked(this, 'wineModal', 'casual-wine');">
+                        10
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placemat Modal structure -->
+    <div class="modal" id="placematModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Placemat</h1>
+                <div class="close-modal" onclick="toggleModal('placematModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Lay the placemat on the table.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Napkin Modal structure -->
+    <div class="modal" id="napkinModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Napkin</h1>
+                <div class="close-modal" onclick="toggleModal('napkinModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Lay the napkin to the left of the plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fork Modal structure -->
+    <div class="modal" id="forkModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Fork</h1>
+                <div class="close-modal" onclick="toggleModal('forkModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the fork on the napkin.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dinner Plate Modal structure -->
+    <div class="modal" id="dinnerPlateModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Plate</h1>
+                <div class="close-modal" onclick="toggleModal('dinnerPlateModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Put the dinner plate in the middle of the placemat.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Salad Plate Modal structure -->
+    <div class="modal" id="saladPlateModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Salad Plate</h1>
+                <div class="close-modal" onclick="toggleModal('saladPlateModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the salad plate on top of the dinner plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soup Bowl Modal structure -->
+    <div class="modal" id="bowlModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Soup Bowl</h1>
+                <div class="close-modal" onclick="toggleModal('bowlModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Place the soup bowl on top of the salad plate.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Knife Modal structure -->
+    <div class="modal" id="knifeModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Dinner Knife</h1>
+                <div class="close-modal" onclick="toggleModal('knifeModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>To the right of the plate, place the knife closest to the plate, blade pointing in.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spoon Modal structure -->
+    <div class="modal" id="spoonModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Soup Spoon</h1>
+                <div class="close-modal" onclick="toggleModal('spoonModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>To the right of the knife, place the soup spoon.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Water Glass Modal structure -->
+    <div class="modal" id="waterModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Water Glass</h1>
+                <div class="close-modal" onclick="toggleModal('waterModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>Directly above the knife, place the water glass.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wine Glass Modal structure -->
+    <div class="modal" id="wineModal" style="display: none;">
+        <div class="modal-sandbox"></div>
+        <div class="modal-box">
+            <div class="modal-header">
+                <h1>Wine Glass</h1>
+                <div class="close-modal" onclick="toggleModal('wineModal');">
+                    &#10006;
+                </div>
+            </div>
+            <div class="modal-body">
+                <p>To the right and slightly above the water glass, place the wine glass or a glass for another beverage.</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Define the identifiers specifically for the casual table setting
+    const casualHotspotIdentifiers = [
+        'casual-placemat-hotspot',
+        'casual-napkin-hotspot',
+        'casual-fork-hotspot',
+        'casual-dinner-plate',
+        'casual-salad-plate',
+        'casual-bowl',
+        'casual-knife',
+        'casual-spoon',
+        'casual-water',
+        'casual-wine'
+    ];
+
+    // Initialize clicked states with casual-specific identifiers
+    const clickedCasualHotspots = {};
+    casualHotspotIdentifiers.forEach(identifier => clickedCasualHotspots[identifier] = false);
+
+    // Function to toggle modal visibility
+    function toggleModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = modal.style.display === "block" ? "none" : "block";
+        }
+    }
+
+    // Stop the animation of a hotspot
+    function stopAnimation(hotspot) {
+        hotspot.style.animation = 'none';
+    }
+
+    // Function to handle a hotspot click and mark it as clicked
+    function hotspotClicked(hotspot, modalId, identifier) {
+        stopAnimation(hotspot);
+        toggleModal(modalId);
+        hotspot.style.backgroundColor = "rgba(128, 128, 128, 0.5)";
+        clickedCasualHotspots[identifier] = true;
+        checkAllCasualHotspotsClicked();
+    }
+
+    // Function to check if all casual hotspots have been clicked and reveal the "Next Lesson" button
+    function checkAllCasualHotspotsClicked() {
+        const allClicked = Object.values(clickedCasualHotspots).every(status => status === true);
+        const nextLessonButton = document.getElementById('nextLessonButton');
+
+        console.log(`All hotspots clicked: ${allClicked}`);
+        if (allClicked) {
+            console.log("Revealing the 'Next Lesson' button.");
+            nextLessonButton.style.display = "block";
+        } else {
+            console.log("Some hotspots are still unchecked.");
+        }
+    }
+
+    // Attach event listeners to each hotspot
+    document.querySelectorAll('.hotspot').forEach(hotspot => {
+        hotspot.addEventListener('click', () => {
+            const modalId = hotspot.getAttribute('onclick').match(/toggleModal\('(.+?)'\)/)[1];
+            const identifier = hotspot.classList[1]; // Assuming the second class is the identifier
+            hotspotClicked(hotspot, modalId, identifier);
+        });
+    });
+</script>
+{% endblock %}

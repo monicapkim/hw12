@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quiz
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h1 class="display-4">{{ question }}</h1>
+        <form id="quiz_form" class="mb-4" method="POST" action="{{ url_for('quiz') }}">
+            <div class="list-group-container mx-auto">
+                <div class="list-group">
+                    {% for key, value in options.items() %}
+                        <a href="#" class="list-group-item list-group-item-action"
+                           onclick="document.getElementById('selected_option').value='{{ key }}';">
+                            {{ key }} - {{ value }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            <input type="hidden" id="selected_option" name="quiz_option" value="">
+            <input type="submit" value="Submit Answer" class="btn btn-outline-primary custom-button-margin">
+        </form>
+    </div>
+{% endblock %}

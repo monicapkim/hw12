@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+quiz feedback
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4">quiz feedback</h1>
+    <p class="lead">
+        {% if user_answer == correct_answer %}
+            well done! your answer ({{ user_answer }}) is correct.
+        {% else %}
+            your answer ({{ user_answer }}) is incorrect. the correct answer is ({{ correct_answer }}).
+        {% endif %}
+    </p>
+    <div class="list-group-container mx-auto">
+        <ul class="list-group">
+            <li class="list-group-item {% if 'A' == correct_answer %}list-group-item-success{% elif user_answer == 'A' %}list-group-item-incorrect{% endif %}">
+                a - to the right of the charger
+            </li>
+            <li class="list-group-item {% if 'B' == correct_answer %}list-group-item-success{% elif user_answer == 'B' %}list-group-item-incorrect{% endif %}">
+                b - directly above the charger
+            </li>
+            <li class="list-group-item {% if 'C' == correct_answer %}list-group-item-success{% elif user_answer == 'C' %}list-group-item-incorrect{% endif %}">
+                c - to the top left of the charger
+            </li>
+            <li class="list-group-item {% if 'D' == correct_answer %}list-group-item-success{% elif user_answer == 'D' %}list-group-item-incorrect{% endif %}">
+                d - below the charger
+            </li>
+        </ul>
+    </div>
+    <div class="mt-4">
+        <a href="/" class="btn btn-outline-primary custom-button-margin">back to main menu</a>
+    </div>
+</div>
+{% endblock %}
+
+
